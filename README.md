@@ -2,7 +2,7 @@
 
 
 
-This project is based on the code https://github.com/vlaate/SkyWatcherWiFi/blob/master/SkyWatcherWiFi.ino. But thE code and eletronic schema were adapted to  HEQ5 SkyWatcher mount.
+This project is based on the code https://github.com/vlaate/SkyWatcherWiFi. But thE code and eletronic schema were adapted to  HEQ5 SkyWatcher mount.
 
 
 

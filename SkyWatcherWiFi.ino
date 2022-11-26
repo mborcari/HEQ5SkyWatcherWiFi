@@ -1,6 +1,6 @@
 /*
   Serial to WiFi adapter for Skywatcher telescopes
-  This is an adapter to connect to the RJ-11 udpPort of Skywatcher telescope mounts
+  This is an adapter to connect to the RJ-45 udpPort of Skywatcher telescope mounts
   and offer the serial connection as an UDP udpPort 11880 via WiFi to the Skywatcher Synscan app.
   Copyright (c) 2019 Vladimir Atehortua. All rights reserved.
   This program is free software: you can redistribute it and/or modify
@@ -16,24 +16,26 @@
 
 /**
     Hardware used:
-    NodeMCU ESP8266 development board (version 12E) I used the HiLetgo model https://www.amazon.com/gp/product/B010O1G1ES 
-    100 Ohm resistor
+    NodeMCU ESP8266 development board.
     50 Ohm resistor (or two 100 Ohm resistors in parallel)
-    RJ11 Pinout:
-        --- No Connection
-        --- GND
-        --- "TX" to a 50 Ohm resistor and then to NodeMCU's pin TX (GPIO_1)
-        --- VCC 12V (to a 5V drop-down volate regulator to power the NodeMCU thrugh it's Vin pin)
-        --- "RX" to a 100 Ohm resistor and then to NodeMCU's pin RX (GPIO_3)
-        --- No Connection
-    
+    HEQ5 RJ45 Pinout:
+        1 No Connection
+        2 No Connection
+        3 No Connection
+        4 GND
+        5 "TX" to NodeMCU's pin RX (GPIO_3)
+        6 "RX" to a 50 Ohm resistor and then to NodeMCU's pin TX (GPIO_1)
+        7 VCC 12V (to a 5V drop-down volate regulator to power the NodeMCU thrugh it's Vin pin)
+        8 No Connection
+
+
     ESP8266 pinout:
-     GND:  To the GND pin of the RJ11 connector (and to GND of your chosen power source)
+     GND:  To the GND pin of the RJ45 connector (and to GND of your chosen power source)
 
      When not connected to a computer via USB:
      Vin:  5V~9V from any power source (you can use a step down from 12V to ~5V to power the NodeMCU from most skywatcher mounts)
-     TX:   to a 50 Ohm resstor and then to the "TX" pin on the RJ11 connector
-     RX:   to a 100 Ohm resistor and then to the "RX" pin on the RJ11 connector
+     TX:   to a 50 Ohm resistor and then to the "RX" pin on the RJ45 connector
+     RX:   to the "TX" pin on the RJ45 connector
 */
 
 #include <ESP8266WiFi.h>
@@ -44,7 +46,7 @@
 #define timeOut 20 // ms (if nothing more on UART, then send packet)
 #define bufferSize 8192
 
-#define WiFi_Access_Point_Name "SynScan_WiFi_1234"   // Name of the WiFi access point this device will create for your tablet/phone to connect to.
+#define WiFi_Access_Point_Name "SynScan_WiFi_HEQ5"   // Name of the WiFi access point this device will create for your tablet/phone to connect to.
 #define udpPort 11880 // UDP udpPort expected by SynScan
 WiFiUDP udp;
 IPAddress remoteIp;
@@ -62,7 +64,7 @@ void setup() {
   Serial.begin(mountBaudRate);
 
   WiFi.mode(WIFI_AP);
-  IPAddress ip(192, 168, 4, 1);
+  IPAddress ip(192, 168, 100, 1);
   IPAddress subnet(255, 255, 255, 0);
   WiFi.softAPConfig(ip, ip, subnet);
   WiFi.softAP(WiFi_Access_Point_Name); // configure ssid and password for softAP
@@ -86,7 +88,7 @@ void loop()
 
   if (Serial.available()) // when data arrives from the mount via the serial port
   {
-    Serial.read();
+    //Serial.read();
     while (true)
     {
       if (Serial.available()) 
