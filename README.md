@@ -11,11 +11,11 @@ This project is an implementation of a simple adapter to connect old Skywatcher 
 
 I have tested this project on my Orion Starblast Autotracker mount (also sold as "Skywatcher Virtuoso"):
 
-![alt text](https://raw.githubusercontent.com/mborcari/HEQ5SkyWatcherWiFi/master/mount.jpg "Skywatcher Virtuoso")
+![alt text](https://github.com/mborcari/HEQ5SkyWatcherWiFi/master/mount.jpg "Skywatcher Virtuoso")
 
 This adapter creates a WiFi network called "SynScan_WiFi_HEQ5". I can connect my tablet, cell phone or notebook through SysScan APP or EQMOD:
 
-![alt text](https://raw.githubusercontent.com/mborcari/HEQ5SkyWatcherWiFi/master/Screenshot.jpg "SkyWatcher App")
+![alt text](https://github.com/mborcari/HEQ5SkyWatcherWiFi/master/Screenshot.jpg "SkyWatcher App")
 
 
 Goto works, including star alignment, tracking, etc. One thing that did not work with my Virtuoso mount are the arrow buttons (for manual movement). My Virtuoso mount comes with these buttons built-in, and even with the adapter+app, I have to use the hardware built-in buttons in the mount for manual movement, because the "virtual" buttons in the SynScan app didn't seem to work. Everything else for goto worked fine though.
@@ -23,7 +23,7 @@ Goto works, including star alignment, tracking, etc. One thing that did not work
 ## Parts List
 
 * A Voltage regulator / Power Supply
-* A NodeMCU ESP8266 development board (I used is [this one](https://www.amazon.com/gp/product/B010O1G1ES))
+* A NodeMCU ESP8266 development board
 * Two resistors (100 Ohm each). 
 
 Although the NodeMCU already comes with an internal Voltage regulator, in many models it does not support input voltages over 10V. For this reason, it's safer (to avoid damaging the NodeMCU) to use an external regulator to drop the VCC voltage from the mount (~12V) down to 5V (the typical Vin voltage the NodeMCU gets from the USB cable).
@@ -34,11 +34,10 @@ Remember that after you install a voltage regulator to power the device from the
 
 The order of the RJ-45 pins from top to bottom corresponds to linear order of the bare copper contacts in the actual connector (the ones that will touch the RJ11 cable).
 
-![alt text](https://raw.githubusercontent.com/mborcari/HEQ5SkyWatcherWiFi/master/RJ45Pinout.png "SkyWatcher WiFi")
+![alt text](https://github.com/mborcari/HEQ5SkyWatcherWiFi/master/RJ45Pinout.png "SkyWatcher WiFi")
 
-![alt text](https://raw.githubusercontent.com/mborcari/HEQ5SkyWatcherWiFi/master/RJ45Pinout2.jpg "SkyWatcher WiFi")
+![alt text](https://github.com/mborcari/HEQ5SkyWatcherWiFi/master/RJ45Pinout2.jpg "SkyWatcher WiFi")
 
-You can probably get the parts for under USD$10, but you do need to be an arduino enthusiast of sorts, in order to use the Arduno IDE to to upload the project's software (see the [SkyWatcherWiFi.ino](https://github.com/vlaate/SkyWatcherWiFi/blob/master/SkyWatcherWiFi.ino) file) to the the NodeMCU ESP8266 microcontroller.
 
 ## Circuit
 
