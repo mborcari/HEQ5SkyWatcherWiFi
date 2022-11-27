@@ -11,7 +11,6 @@ This project is an implementation of a simple adapter to connect old Skywatcher 
 
 I have tested this project on my Orion Starblast Autotracker mount (also sold as "Skywatcher Virtuoso"):
 
-![alt text](https://raw.githubusercontent.com/mborcari/HEQ5SkyWatcherWiFi/master/mount.jpg "Skywatcher Virtuoso")
 
 This adapter creates a WiFi network called "SynScan_WiFi_HEQ5". I can connect my tablet, cell phone or notebook through SysScan APP or EQMOD:
 
