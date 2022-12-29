@@ -14,7 +14,7 @@ I have tested this project on my Orion Starblast Autotracker mount (also sold as
 
 This adapter creates a WiFi network called "SynScan_WiFi_HEQ5". I can connect my tablet, cell phone or notebook through SysScan APP or EQMOD:
 
-![alt text](https://raw.githubusercontent.com/HEQ5SkyWatcherWiFi/master/Screenshot.jpg "SkyWatcher App")
+![alt text](https://raw.githubusercontent.com/mborcari/HEQ5SkyWatcherWiFi/master/Screenshot.jpg "SkyWatcher App")
 
 
 Goto works, including star alignment, tracking, etc. One thing that did not work with my Virtuoso mount are the arrow buttons (for manual movement). My Virtuoso mount comes with these buttons built-in, and even with the adapter+app, I have to use the hardware built-in buttons in the mount for manual movement, because the "virtual" buttons in the SynScan app didn't seem to work. Everything else for goto worked fine though.
